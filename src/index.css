@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  /* text-shadow: 1px 1px #ccc;  */
+  color: rgb(12, 137, 178);
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  padding: 0px 10px;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
