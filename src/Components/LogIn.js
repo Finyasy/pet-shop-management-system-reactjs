@@ -57,9 +57,6 @@ const LogIn = () => {
           {" "}
           Don't have an account?{" "}
           <Link to="/signup">
-            <a href="/signup">
-            Sign Up
-            </a>                    
           </Link>  
         </p>
     </form>
