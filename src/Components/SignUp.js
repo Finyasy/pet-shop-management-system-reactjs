@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from '../api/axios'
+import cat from "../images/cat.png"
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const SignUp = () => {
     .then((response) => {
       setAuthenticated(true);
       localStorage.setItem('token', JSON.stringify(response.data.token))
-      localStorage.setItem('username', JSON.stringify(response.data.username))
+      localStorage.setItem('name', JSON.stringify(response.data.name))
       localStorage.setItem('user_id', JSON.stringify(response.data.user_id))
     }).catch((error) => {
       if( error.response ){
@@ -36,6 +37,7 @@ const SignUp = () => {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+      <img src={cat} alt="pet" style={{ width: "50%",height: "auto", marginRight: "2rem", marginTop: "auto", marginBottom: "auto" }} />
     {
     authenticated ? (
     <p>Sign up successful!</p>
@@ -54,7 +56,7 @@ const SignUp = () => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        placeholder="Email"
+        placeholder="✉️ Email"
         required
       />
       <input
@@ -62,7 +64,7 @@ const SignUp = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        placeholder="Password"
+        placeholder="🔓 Password"
         required
       />
       <input
@@ -70,7 +72,7 @@ const SignUp = () => {
         name="confirmPassword"
         value={formData.confirmPassword}
         onChange={handleChange}
-        placeholder="Confirm Password"
+        placeholder="🔓 Confirm Password"
         required
       />
       <button type="submit">Sign Up</button>
