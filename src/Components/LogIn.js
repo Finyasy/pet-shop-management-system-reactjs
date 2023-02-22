@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from '../api/axios'
+import cat from "../images/cat.png"
 
 const LogIn = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const LogIn = () => {
       .then((response) => {
         setAuthenticated(true);
         localStorage.setItem('token', JSON.stringify(response.data.token))
-        localStorage.setItem('username', JSON.stringify(response.data.username))
+        localStorage.setItem('name', JSON.stringify(response.data.name))
         localStorage.setItem('user_id', JSON.stringify(response.data.user_id))
         localStorage.setItem('authenticated', JSON.stringify(true))        
       }).catch(error => {
@@ -33,6 +34,7 @@ const LogIn = () => {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+      <img src={cat} alt="pet" style={{ width: "50%",height: "auto", marginRight: "2rem", marginTop: "auto", marginBottom: "auto" }} />
     <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       {errors && <p style={{color: "red"}}>{errors}</p>}
       <input
@@ -40,7 +42,7 @@ const LogIn = () => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        placeholder="Email"
+        placeholder="✉️ Email"
         required
       />
       <input
@@ -48,7 +50,7 @@ const LogIn = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        placeholder="Password"
+        placeholder="🔓 Password"
         required
       />
       <button type="submit">Log In</button>
@@ -57,6 +59,7 @@ const LogIn = () => {
           {" "}
           Don't have an account?{" "}
           <Link to="/signup">
+            Sign Up
           </Link>  
         </p>
     </form>
