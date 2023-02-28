@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from '../api/axios'
 import cat from "../images/cat.png"
 
-const LogIn = () => {
+const LogIn = ({handleLogin}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -25,7 +25,8 @@ const LogIn = () => {
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('name', JSON.stringify(response.data.name))
         localStorage.setItem('user_id', JSON.stringify(response.data.user_id))
-        localStorage.setItem('authenticated', JSON.stringify(true))        
+        localStorage.setItem('authenticated', JSON.stringify(true))
+        handleLogin();       
       }).catch(error => {
         // Handle error
         setErrors(error.response.data.error);
